@@ -1,0 +1,108 @@
+---
+title: PID Control
+---
+
+# PID Control
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand the fundamental principles of control systems, distinguishing between open-loop and closed-loop approaches.
+- Grasp the individual contributions of the Proportional (P), Integral (I), and Derivative (D) terms within a PID controller.
+- Construct the complete PID equation and comprehend its block diagram representation.
+- Apply various methods for tuning PID controllers effectively for robotic applications.
+- Implement PID control in practical robotic scenarios such as motor speed or joint position control.
+- Recognize advanced PID concepts and understand the limitations of PID control.
+
+---
+
+## Module 1: Introduction to Control Systems and PID
+
+### What is Control?
+Content for: Definition and importance in robotics. Examples: Maintaining speed, position, balance.
+
+### Open-Loop vs. Closed-Loop Control
+Content for: **Open-Loop:** Definition, examples (e.g., timed actions), limitations. **Closed-Loop (Feedback):** Definition, block diagram, benefits (accuracy, disturbance rejection).
+
+### Introduction to PID Control
+Content for: Why PID? Overcoming limitations of simpler controllers. Brief overview of Proportional, Integral, and Derivative terms. Historical context and widespread use.
+
+## Module 2: Understanding the PID Components
+
+### The Proportional (P) Term
+Content for: **Concept:** Response proportional to the current error. **Equation:** `P_out = Kp * error`. **Effect on System:** Reduces steady-state error, increases responsiveness, can cause overshoot/oscillation. **`Kp` Gain:** Impact of increasing/decreasing `Kp`. **Limitations:** Always has a steady-state error (offset) for constant disturbances in simple systems.
+
+### The Integral (I) Term
+Content for: **Concept:** Response proportional to the accumulation of past errors. **Equation:** `I_out = Ki * ∫ error dt`. **Effect on System:** Eliminates steady-state error (offset), can lead to overshoot and slower response. **`Ki` Gain:** Impact of increasing/decreasing `Ki`. **Challenges:** Integral windup and anti-windup strategies.
+
+### The Derivative (D) Term
+Content for: **Concept:** Response proportional to the rate of change of the error. **Equation:** `D_out = Kd * (d(error)/dt)`. **Effect on System:** Dampens oscillations, improves stability, reduces overshoot, anticipates future error. **`Kd` Gain:** Impact of increasing/decreasing `Kd`. **Challenges:** Noise amplification. Filtering derivative term.
+
+## Module 3: Constructing and Implementing the PID Controller
+
+### The PID Equation
+Content for: Combining P, I, and D terms: `Control_Output = Kp * error + Ki * ∫ error dt + Kd * (d(error)/dt)`. Discrete vs. Continuous implementation.
+
+### PID Block Diagram
+Content for: Visual representation of the feedback loop. Set-point, process variable, error, controller, actuator, process, sensor.
+
+### Implementation in Code (Pseudocode / Example Language)
+Content for: Calculating error. Calculating integral sum. Calculating derivative term. Applying gains and summing outputs. Clamping control output. Sampling rate and its importance.
+
+<h2>Module 4: Tuning PID Controllers for Robotics</h2>
+
+<h3>Goals of PID Tuning</h3>
+Content for: Stability, responsiveness (rise time), minimal overshoot, zero steady-state error, disturbance rejection.
+
+<h3>Manual Tuning Methods</h3>
+Content for: Trial and error approach (start with P, then D, then I). Impact of each gain on the system response.
+
+<h3>Ziegler-Nichols Method</h3>
+Content for: **Open-Loop Method:** Step response, process reaction curve. **Closed-Loop Method:** Ultimate gain and period. Deriving `Kp`, `Ki`, `Kd` from Z-N rules.
+
+<h3>Software-Based / Auto-Tuning (Brief Mention)</h3>
+Content for: Overview of more advanced tuning algorithms (e.g., relay feedback, genetic algorithms). Availability in libraries or specific hardware.
+
+<h3>Tuning Considerations for Robotics</h3>
+Content for: Varying loads, friction, non-linearities. Compromises in tuning for different robotic tasks.
+
+<h2>Module 5: Practical Applications and Case Studies in Robotics</h2>
+
+<h3>Components for Robotic Control</h3>
+Content for: **Sensors:** Encoders (position/speed), IMUs (orientation), Potentiometers. **Actuators:** DC Motors (PWM control), Servos, Stepper Motors.
+
+<h3>Case Study 1: DC Motor Speed Control</h3>
+Content for: Problem: Maintain constant motor RPM despite load changes. Setup: Encoder for feedback, PWM for motor control. PID implementation walkthrough.
+
+<h3>Case Study 2: Robot Joint Position Control</h3>
+Content for: Problem: Move a robotic arm joint to a precise angle. Setup: Potentiometer/Encoder for feedback, servo/motor with gearbox. PID implementation walkthrough, dealing with gravity/inertia.
+
+<h3>Case Study 3: Simple Line-Following Robot (Conceptual)</h3>
+Content for: Problem: Keep robot centered on a line. Setup: Line sensors, differential drive motors. PID for steering correction based on line deviation.
+
+<h2>Module 6: Advanced PID Concepts and Beyond</h2>
+
+<h3>Feedforward Control</h3>
+Content for: Anticipating disturbances based on known system dynamics. Combining feedforward with PID for improved performance.
+
+<h3>Cascade PID Control</h3>
+Content for: Using multiple PID loops (e.g., inner current loop, outer velocity loop, outermost position loop). Benefits for complex systems.
+
+<h3>Gain Scheduling</h3>
+Content for: Changing PID gains based on operating conditions (e.g., speed, load, position).
+
+<h3>Non-Linear Control Methods (Brief Introduction)</h3>
+Content for: Fuzzy Logic Control. Adaptive Control. Model Predictive Control (MPC).
+
+<h3>Limitations of PID</h3>
+Content for: Poor performance with highly non-linear or rapidly changing systems. Difficulty with systems with long delays.
+
+<h2>Module 7: Conclusion and Further Learning</h2>
+
+<h3>Key Takeaways</h3>
+Content for: Recap of P, I, D terms and their combined effect. Importance of tuning. Versatility of PID in robotics.
+
+<h3>Best Practices</h3>
+Content for: Start simple, tune carefully. Understand your system's dynamics. Document your tuning parameters.
+
+<h3>Resources for Continued Learning</h3>
+Content for: Books, online courses, simulation tools (e.g., Gazebo, CoppeliaSim), robotics platforms (e.g., Arduino, Raspberry Pi).

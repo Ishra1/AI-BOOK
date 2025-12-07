@@ -1,0 +1,92 @@
+---
+title: Computer Vision Basics
+---
+
+# Computer Vision Basics
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand fundamental concepts in computer vision for robotics.
+- Explain common image processing techniques (e.g., filtering, edge detection).
+- Describe the basics of feature detection and matching.
+- Discuss applications of computer vision in physical AI systems (Szeliski, 2010).
+
+## Introduction to Computer Vision
+
+Computer vision is a field of artificial intelligence that enables computers to "see" and interpret visual information from the world. In physical AI and robotics, computer vision systems are critical for:
+-   **Object Recognition and Tracking**: Identifying and following objects in the environment.
+-   **Localization and Mapping**: Determining the robot's position and building maps using visual data (SLAM).
+-   **Navigation**: Detecting obstacles and identifying free space for movement.
+-   **Human-Robot Interaction**: Understanding human gestures and intentions.
+
+## Image Representation and Basic Operations
+
+Digital images are typically represented as grids of pixels, where each pixel stores intensity or color information. Common image formats include grayscale (single channel) and RGB (three channels: Red, Green, Blue).
+
+### Basic Image Processing Operations:
+
+*   **Filtering**: Applying kernels to images to achieve effects like blurring (e.g., Gaussian filter for noise reduction) or sharpening.
+*   **Thresholding**: Converting a grayscale image into a binary image based on a pixel intensity threshold, useful for segmenting objects from the background.
+*   **Morphological Operations**: Operations like erosion and dilation that process images based on their shape, often used for noise removal and object shaping.
+
+## Edge Detection
+
+**Edge detection** is a fundamental image processing technique used to identify points in an image where the image brightness changes sharply. These points often correspond to boundaries of objects, depth discontinuities, or changes in surface orientation.
+
+Popular edge detection algorithms include:
+*   **Sobel Operator**: Computes the gradient magnitude at each pixel to detect edges.
+*   **Canny Edge Detector**: A multi-stage algorithm known for producing good quality edges, involving noise reduction, gradient calculation, non-maximum suppression, and hysteresis thresholding (Canny, 1986).
+
+```python
+import cv2
+import numpy as np
+
+# Load an image (replace 'image.jpg' with your image file)
+# For this example, let's create a dummy image with a square
+img = np.zeros((100, 100), dtype=np.uint8)
+img[20:80, 20:80] = 255 # White square on black background
+# cv2.imwrite('dummy_image.png', img) # Uncomment to save the dummy image
+
+# Apply Canny edge detector
+edges = cv2.Canny(img, 100, 200) # (image, threshold1, threshold2)
+
+# Display the original and edge-detected image (requires a display)
+# cv2.imshow('Original Image', img)
+# cv2.imshow('Canny Edges', edges)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+# For environments without display, print some info
+print("Original image shape:", img.shape)
+print("Edges image shape:", edges.shape)
+print("Number of edge pixels:", np.sum(edges > 0))
+```
+
+## Feature Detection and Matching
+
+**Features** are distinctive points or regions in an image that can be reliably detected and matched across different views or frames. They are crucial for tasks like:
+*   **Object Tracking**: Tracking the movement of specific features to follow an object.
+*   **Image Stitching**: Aligning multiple images to create a panoramic view.
+*   **SLAM**: Identifying corresponding features in different camera frames to estimate robot motion and build maps.
+
+Common feature detection algorithms include:
+*   **SIFT (Scale-Invariant Feature Transform)**: Detects and describes local features that are invariant to scale and rotation changes (Lowe, 2004).
+*   **SURF (Speeded Up Robust Features)**: A faster alternative to SIFT, offering similar robustness.
+*   **ORB (Oriented FAST and Rotated BRIEF)**: An efficient alternative that is free and patented-free.
+
+Once features are detected, **feature matching** algorithms compare feature descriptors to find correspondences between images.
+
+## Computer Vision in Physical AI Applications
+
+*   **Autonomous Navigation**: Visual odometry (estimating motion from camera images), lane detection, traffic sign recognition.
+*   **Robotic Manipulation**: Grasping objects, visual servoing (using visual feedback to control a robot's end-effector), quality inspection.
+*   **Human-Robot Interaction**: Gesture recognition, facial expression analysis, human pose estimation.
+*   **Surveillance and Monitoring**: Anomaly detection, activity recognition.
+
+## References
+
+Canny, J. (1986). A computational approach to edge detection. *IEEE Transactions on Pattern Analysis and Machine Intelligence*, PAMI-8(6), 679-698.
+
+Lowe, D. G. (2004). Distinctive image features from scale-invariant keypoints. *International Journal of Computer Vision*, 60(2), 91-110.
+
+Szeliski, R. (2010). *Computer vision: Algorithms and applications*. Springer Science & Business Media.

@@ -1,0 +1,92 @@
+---
+title: Path Planning
+---
+
+# Path Planning
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand the core concepts and challenges of path planning in robotics.
+- Differentiate between various path planning algorithms and their applications.
+- Grasp the fundamentals of robot and environment representation for path planning.
+- Identify suitable algorithms for different robotics scenarios based on their properties and limitations.
+- Understand practical considerations and tools used in path planning.
+
+---
+
+## I. Introduction to Path Planning
+
+### What is Path Planning?
+Content for: Definition and Goal: Finding a collision-free path from start to goal. Distinction: Path Planning vs. Motion Planning vs. Trajectory Generation.
+
+### Why is Path Planning Important?
+Content for: Autonomy, safety, efficiency in robotics. Applications (e.g., mobile robots, manipulators, autonomous vehicles).
+
+### Key Challenges in Path Planning
+Content for: Obstacle avoidance, computational complexity, dynamic environments, non-holonomic constraints.
+
+## II. Fundamentals of Path Planning
+
+### Robot Representation
+Content for: Point robot, rigid body, configuration space (C-space). Obstacle inflation and C-space obstacles.
+
+### Environment Representation
+Content for: Grid maps (occupancy grids), Voronoi diagrams, probabilistic roadmaps. Known vs. Unknown environments. Static vs. Dynamic environments.
+
+### Path Properties
+Content for: Optimality (shortest, smoothest, fastest), completeness, safety, feasibility.
+
+## III. Classical Path Planning Algorithms (Search-Based)
+
+### Graph Search Algorithms
+Content for: Breadth-First Search (BFS), Depth-First Search (DFS), Dijkstra's Algorithm (shortest path on weighted graphs).
+
+### A* Search Algorithm
+Content for: Informed search with heuristics. Heuristics (Manhattan, Euclidean, Chebyshev distance). Admissibility and consistency. Implementation Example: Grid-based A* (pseudo-code/conceptual).
+
+## IV. Sampling-Based Path Planning Algorithms
+
+### Probabilistic Roadmaps (PRM)
+Content for: Concept: Constructing a roadmap of free space. Phases: Construction (sampling, connecting nodes) and Query (searching the roadmap). Pros and Cons.
+
+### Rapidly-exploring Random Trees (RRT & RRT*)
+Content for: Concept: Incrementally building a tree to explore the C-space. RRT: Fast exploration, probabilistic completeness. RRT*: Asymptotically optimal RRT. Pros and Cons. Implementation Example: Basic RRT (conceptual).
+
+## V. Advanced Path Planning Concepts
+
+### Potential Field Methods
+Content for: Concept: Artificial forces (attraction to goal, repulsion from obstacles). Pros: Real-time, reactive. Cons: Local minima issues.
+
+### Path Smoothing
+Content for: Why smooth paths? (e.g., robot kinematics, energy efficiency, comfort). Methods: Splines, Bezier curves, numerical optimization.
+
+### Handling Kinematic & Dynamic Constraints
+Content for: Non-holonomic robots (e.g., cars, differential drive robots). Motion primitives. Differential flatness.
+
+### Multi-Robot Path Planning
+Content for: Challenges and basic approaches (e.g., centralized vs. decoupled).
+
+### Path Planning in Dynamic Environments
+Content for: Re-planning strategies, velocity obstacles.
+
+## VI. Practical Considerations and Tools
+
+### Simulation Environments
+Content for: ROS (Robot Operating System) Navigation Stack (MoveIt!, AMCL, local planners). Gazebo, PyBullet, Webots.
+
+### Libraries and Frameworks
+Content for: Open Motion Planning Library (OMPL). Custom implementations.
+
+### Performance Metrics
+Content for: Path length, computation time, smoothness, safety margin.
+
+## VII. Conclusion and Next Steps
+
+### Summary of Key Concepts
+Content for: Summary of various algorithms and concepts covered.
+
+### Choosing the Right Algorithm
+Content for: Factors: Environment type, robot constraints, optimality requirements, computational resources.
+
+### Further Exploration
+Content for: Learning-based path planning (e.g., Reinforcement Learning). Task and Motion Planning (TAMP).

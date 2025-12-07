@@ -1,0 +1,57 @@
+---
+title: Sensors and Perception
+---
+
+# Sensors and Perception
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Classify different types of sensors used in robotics (e.g., proprioceptive, exteroceptive).
+- Understand the principles of operation for common robotic sensors (e.g., encoders, IMUs, lidar, cameras).
+- Explain the role of sensor fusion in building a robust perception of the environment.
+- Discuss challenges and limitations in robotic perception (Thrun et al., 2005).
+
+## Introduction to Robotic Sensors
+
+Robots rely on sensors to gather information about themselves (proprioception) and their environment (exteroception). This sensory data is crucial for navigation, manipulation, interaction, and autonomous decision-making. Without effective perception, a physical AI system would be blind and unable to interact intelligently with the physical world.
+
+## Proprioceptive Sensors
+
+Proprioceptive sensors measure the internal state of the robot. They provide information about the robot's joint angles, motor speeds, and internal forces.
+
+*   **Encoders**: Measure the angular position or velocity of a motor shaft or joint. They are fundamental for controlling robot movement precisely.
+*   **IMUs (Inertial Measurement Units)**: Combine accelerometers, gyroscopes, and sometimes magnetometers to measure orientation, angular velocity, and linear acceleration. IMUs are critical for estimating a robot's pose and stabilizing its motion.
+*   **Force/Torque Sensors**: Measure forces and torques applied at robot joints or end-effectors. Essential for compliant control and safe human-robot interaction.
+
+## Exteroceptive Sensors
+
+Exteroceptive sensors gather information about the robot's external environment.
+
+*   **Lidar (Light Detection and Ranging)**: Uses pulsed laser light to measure distances to objects, creating detailed 2D or 3D point clouds of the environment. Lidar is excellent for mapping, localization, and obstacle avoidance (Levinson et al., 2011).
+*   **Cameras (Monocular, Stereo, RGB-D)**:
+    *   **Monocular Cameras**: Provide 2D image data, useful for object recognition, visual servoing, and feature tracking.
+    *   **Stereo Cameras**: Mimic human binocular vision, using two cameras to estimate depth by triangulation.
+    *   **RGB-D Cameras (e.g., Intel RealSense)**: Provide both color (RGB) images and per-pixel depth information. Highly valuable for 3D perception tasks, such as object pose estimation and scene reconstruction.
+*   **Ultrasonic Sensors**: Emit sound waves and measure the time-of-flight of the reflected wave to estimate distances. Commonly used for short-range obstacle detection.
+*   **GPS (Global Positioning System)**: Provides absolute positioning outdoors. Less effective indoors or in urban canyons due to signal limitations.
+
+## Sensor Fusion
+
+No single sensor provides a complete and unambiguous understanding of the world. Each sensor has its strengths and weaknesses (e.g., cameras are rich in texture but poor in depth, lidar is good for geometry but lacks color). **Sensor fusion** is the process of combining data from multiple sensors to obtain a more accurate, reliable, and comprehensive perception of the robot's state and environment (Durrant-Whyte & Bailey, 2006).
+
+Common techniques for sensor fusion include Kalman filters, Extended Kalman filters (EKF), and particle filters, which integrate noisy and uncertain sensor measurements over time.
+
+## Challenges in Robotic Perception
+
+*   **Noise and Uncertainty**: All sensors are inherently noisy and provide uncertain measurements.
+*   **Environmental Variability**: Lighting conditions, clutter, dynamic objects, and occlusions make perception challenging.
+*   **Computational Cost**: Processing large amounts of sensor data (e.g., high-resolution camera feeds, dense point clouds) in real-time requires significant computational resources.
+*   **Data Association**: Correctly matching observations from different sensors or over time to the same physical entities.
+
+## References
+
+Durrant-Whyte, H., & Bailey, T. (2006). Simultaneous localization and mapping: part I. *IEEE Robotics & Automation Magazine*, 13(2), 99-110.
+
+Levinson, J., et al. (2011). Towards fully autonomous driving: Systems and algorithms. In *2011 IEEE Intelligent Vehicles Symposium (IV)* (pp. 163-168). IEEE.
+
+Thrun, S., et al. (2005). *Probabilistic robotics*. MIT press.

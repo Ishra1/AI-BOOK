@@ -1,0 +1,130 @@
+---
+title: Bipedal Locomotion
+---
+
+# Bipedal Locomotion
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand the definition, advantages, and inherent challenges of bipedal locomotion in robotics.
+- Grasp the fundamental principles of robot modeling, kinematics, and dynamics as applied to bipedal systems.
+- Comprehend key stability concepts like ZMP and LIPM, and various stability control strategies.
+- Explore methods for gait generation and trajectory planning for bipedal robots.
+- Identify the essential hardware components, sensors, and simulation environments used in bipedal robotics.
+- Gain insight into advanced topics, future directions, and practical implementation considerations for bipedal locomotion.
+
+---
+
+<h2>1. Introduction to Bipedal Locomotion</h2>
+
+<h3>1.1 What is Bipedal Locomotion?</h3>
+Content for: Definition and examples (humans, robots), Advantages (maneuverability, navigating complex terrain), Challenges (stability, energy efficiency, control complexity)
+
+<h3>1.2 Why Study Bipedal Locomotion?</h3>
+Content for: Applications (humanoid robots, prosthetics, exoskeletons), Scientific interest (understanding human movement)
+
+<h3>1.3 Key Concepts & Terminology</h3>
+Content for: Degrees of Freedom (DoF), Center of Mass (CoM), Zero Moment Point (ZMP), Support Polygon/Region, Gait cycles (stance phase, swing phase, double support)
+
+<h2>2. Robot Modeling & Kinematics</h2>
+
+<h3>2.1 Rigid Body Mechanics Review</h3>
+Content for: Coordinate frames, transformations (rotation matrices, homogeneous transforms), Denavit-Hartenberg (DH) parameters (brief overview)
+
+<h3>2.2 Forward Kinematics</h3>
+Content for: Calculating end-effector positions from joint angles, Application to robot legs and torso
+
+<h3>2.3 Inverse Kinematics</h3>
+Content for: Calculating joint angles for desired end-effector positions, Analytical vs. numerical solutions (Jacobian-based methods)
+
+<h3>2.4 Robot Structure & Configuration</h3>
+Content for: Typical DoF for bipedal robots (e.g., 6 DoF per leg + torso/arms), Common joint types (revolute, prismatic)
+
+<h2>3. Robot Dynamics</h2>
+
+<h3>3.1 Lagrangian Dynamics / Newton-Euler Formulation (overview)</h3>
+Content for: Equations of motion for multi-link systems, Mass matrix, Coriolis/centrifugal terms, gravity terms
+
+<h3>3.2 Center of Mass (CoM) Dynamics</h3>
+Content for: Calculating CoM position and velocity, Importance of CoM for stability
+
+<h3>3.3 Zero Moment Point (ZMP) Concept</h3>
+Content for: Definition and physical interpretation, Relationship to stability and ground reaction forces, ZMP equations for bipedal robots
+
+<h3>3.4 Linear Inverted Pendulum Model (LIPM)</h3>
+Content for: Simplified model for walking dynamics, Equations and properties (exponential behavior), Predictive control using LIPM
+
+<h2>4. Stability Control Strategies</h2>
+
+<h3>4.1 Static Stability vs. Dynamic Stability</h3>
+Content for: When is static stability sufficient? (e.g., standing), Why dynamic stability is crucial for walking
+
+<h3>4.2 ZMP-based Control</h3>
+Content for: Reference ZMP trajectories, Feedback control to track ZMP (e.g., CoM adjustment), Preview control for ZMP tracking
+
+<h3>4.3 Whole-Body Control (WBC)</h3>
+Content for: Prioritized tasks (balance, posture, end-effector control), Optimization-based approaches (quadratic programming)
+
+<h3>4.4 Model Predictive Control (MPC)</h3>
+Content for: Predicting future states and optimizing control inputs, Application to bipedal walking (e.g., LIPM-MPC)
+
+<h2>5. Gait Generation & Planning</h2>
+
+<h3>5.1 Trajectory Generation</h3>
+Content for: Footstep planning (placement, orientation), CoM trajectory generation (e.g., using LIPM), Swing leg trajectory generation (splines, polynomials)
+
+<h3>5.2 Different Gait Patterns</h3>
+Content for: Walking, running, stepping over obstacles, Rhythmic vs. non-rhythmic gaits
+
+<h3>5.3 Reinforcement Learning for Gait Generation (brief)</h3>
+Content for: Training policies for robust locomotion, Sim-to-real transfer challenges
+
+<h2>6. Hardware & Sensors</h2>
+
+<h3>6.1 Actuators</h3>
+Content for: Types (DC motors, servo motors, hydraulic/pneumatic), Gear ratios, torque, speed considerations
+
+<h3>6.2 Sensors</h3>
+Content for: **Proprioceptive:** Encoders (joint angles), IMUs (orientation, angular velocity, acceleration), Force/Torque sensors (ground reaction forces), **Exteroceptive:** Lidar, cameras (for perception, path planning - brief mention)
+
+<h3>6.3 Robot Platforms</h3>
+Content for: Examples of bipedal robots (ASIMO, Atlas, Boston Dynamics, open-source platforms), Mechanical design considerations (weight, stiffness, joint limits)
+
+<h2>7. Simulation & Implementation</h2>
+
+<h3>7.1 Robotics Simulation Environments</h3>
+Content for: ROS (Robot Operating System), Gazebo, PyBullet, MuJoCo, Webots, Setting up a bipedal robot model in simulation
+
+<h3>7.2 Control Architectures</h3>
+Content for: Real-time operating systems (RTOS), Communication protocols
+
+<h3>7.3 Practical Considerations</h3>
+Content for: Debugging in simulation vs. hardware, Safety precautions for hardware testing, Sensor calibration
+
+<h2>8. Advanced Topics & Future Directions</h2>
+
+<h3>8.1 Human-Robot Interaction</h3>
+Content for: HRI considerations in bipedal locomotion.
+
+<h3>8.2 Robustness to Disturbances & Uneven Terrain</h3>
+Content for: Strategies for maintaining stability in challenging environments.
+
+<h3>8.3 Energy Efficiency Optimization</h3>
+Content for: Techniques to reduce power consumption during locomotion.
+
+<h3>8.4 Learning-based Locomotion (deep reinforcement learning)</h3>
+Content for: Applying machine learning to achieve more dynamic and adaptive gaits.
+
+<h3>8.5 Soft Robotics & Compliant Actuation</h3>
+Content for: Benefits of compliant structures in bipedal robots.
+
+<h2>9. Conclusion</h2>
+
+<h3>9.1 Recap of Key Learnings</h3>
+Content for: Summary of concepts and algorithms.
+
+<h3>9.2 Resources for Further Study</h3>
+Content for: Books, research papers, online courses, open-source projects.
+
+<h3>9.3 Next Steps for Aspiring Bipedal Robot Engineers</h3>
+Content for: Career paths and opportunities in bipedal robotics.

@@ -1,0 +1,27 @@
+:root {
+  --ifm-color-primary: #2196F3;
+  --ifm-color-primary-dark: #1976D2;
+  --ifm-color-primary-darker: #1565C0;
+  --ifm-color-primary-darkest: #0D47A1;
+  --ifm-color-primary-light: #42A5F5;
+  --ifm-color-primary-lighter: #64B5F6;
+  --ifm-color-primary-lightest: #90CAF9;
+  --ifm-color-secondary: #FF5722;
+  --ifm-background-color: #F5F5F5;
+  --ifm-text-color: #212121;
+  --ifm-link-color: #1976D2; /* Use a darker primary for links */
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #BB86FC;
+  --ifm-color-primary-dark: #3700B3;
+  --ifm-color-primary-darker: #3100A0;
+  --ifm-color-primary-darkest: #27008E;
+  --ifm-color-primary-light: #E0BFFF;
+  --ifm-color-primary-lighter: #E7DBFF;
+  --ifm-color-primary-lightest: #F2E9FF;
+  --ifm-color-secondary: #03DAC6;
+  --ifm-background-color: #121212;
+  --ifm-text-color: #FFFFFF; /* Changed to white */
+  --ifm-link-color: #FFFFFF; /* Changed to white */
+}

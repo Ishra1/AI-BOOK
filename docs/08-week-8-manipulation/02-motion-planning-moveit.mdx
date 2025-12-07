@@ -1,0 +1,112 @@
+---
+title: Motion Planning with MoveIt
+---
+
+# Motion Planning with MoveIt
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand the fundamentals of robotics motion planning and the role of MoveIt.
+- Set up a MoveIt environment for a robot model.
+- Utilize MoveIt's core components for basic motion planning tasks.
+- Grasp advanced concepts such as collision avoidance and path constraints.
+- Understand how MoveIt integrates with real robot hardware.
+- Troubleshoot common issues and apply best practices in MoveIt.
+
+---
+
+## 1. Introduction to Robotics Motion Planning
+
+### What is Motion Planning?
+Content for: Definition and Importance, Key challenges (obstacles, joint limits, singularities)
+
+### Why use a framework like MoveIt?
+Content for: Complexity of robot control, Benefits: Abstraction, algorithms, visualization
+
+## 2. Introduction to MoveIt
+
+### What is MoveIt?
+Content for: Brief history and purpose, Core components overview (Robot Model, Planning Scene, Kinematics, Planners, Motion Controllers)
+
+### Key Features
+Content for: Collision checking, Inverse/Forward Kinematics, Path planning algorithms (OMPL, SBPL), Grasping and object manipulation, Visualization (Rviz integration)
+
+## 3. Setting Up Your Environment
+
+### Prerequisites
+Content for: ROS (Robot Operating System) installation, Catkin/Colcon workspace setup
+
+### MoveIt Installation
+Content for: Installing from apt or source
+
+### Creating a MoveIt Configuration Package
+Content for: `moveit_setup_assistant` tool, Loading a URDF/XACRO model, Defining robot groups, end-effectors, virtual joints, Configuring kinematics and planning parameters, Generating the configuration files
+
+## 4. Core Concepts and Basic Usage
+
+### Robot Model and State
+Content for: Understanding `robot_state::RobotState`
+
+### Planning Scene
+Content for: What is the Planning Scene?, Adding/Removing objects (boxes, spheres, meshes), Attaching/Detaching objects to the robot
+
+### MoveGroupInterface
+Content for: The primary interface for high-level motion planning, Initializing `MoveGroupInterface`, Understanding common methods: `set_joint_value_target`, `set_pose_target`, `plan`, `execute`
+
+### Visualization with Rviz
+Content for: MoveIt display plugin, Monitoring the planning scene and planned paths
+
+## 5. Basic Motion Planning
+
+### Joint Space Planning
+Content for: Moving to specific joint configurations, Example: pick and place by joint targets
+
+### Cartesian Path Planning
+Content for: Moving along a straight line in Cartesian space, `computeCartesianPath`, Understanding `jump_threshold` and `eef_step`, When to use vs. when not to use
+
+### Path Constraints
+Content for: Restricting robot orientation, joint values during a path, Using `moveit_msgs::Constraints`
+
+<h2>6. Advanced Topics and Use Cases</h2>
+
+<h3>Collision Avoidance</h3>
+Content for: Default collision checking, Understanding self-collision, environment collision, Ignoring collisions (e.g., between gripper and object)
+
+<h3>Grasping and Object Manipulation</h3>
+Content for: Defining grasp poses, `Pick` and `Place` actions, Integrating with a simple gripper
+
+<h3>Multiple Robots and Collaborations (Briefly)</h3>
+Content for: Setting up multi-robot MoveIt configurations, Synchronized movements
+
+<h3>Real-time Considerations</h3>
+Content for: Planning speed vs. path quality, Optimizing planner parameters, Using simplified collision models
+
+<h2>7. Integration with a Real Robot</h2>
+
+<h3>MoveIt Controllers</h3>
+Content for: Connecting MoveIt to hardware interfaces (e.g., `ros_control`), Configuring `controllers.yaml`, Executing planned trajectories on physical hardware
+
+<h3>Feedback and Error Handling</h3>
+Content for: Monitoring execution status, Retrying failed plans
+
+<h2>8. Troubleshooting and Best Practices</h2>
+
+<h3>Common Errors</h3>
+Content for: "No motion plan found", "Unable to connect to controller", Collision detection issues
+
+<h3>Debugging Techniques</h3>
+Content for: Rviz for visualization, Logging and introspection
+
+<h3>Performance Tips</h3>
+Content for: Choosing appropriate planners, Simplifying robot models/collision meshes
+
+<h3>Future of MoveIt</h3>
+Content for: MoveIt 2.0 and ROS 2 integration
+
+<h2>9. Conclusion</h2>
+
+<h3>Summary of MoveIt's capabilities</h3>
+Content for: Overview of what MoveIt can do.
+
+<h3>Further learning resources</h3>
+Content for: Books, tutorials, online courses, MoveIt documentation.

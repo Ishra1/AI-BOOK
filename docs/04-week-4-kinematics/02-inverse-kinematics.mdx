@@ -1,0 +1,11 @@
+---
+title: Inverse Kinematics
+---
+
+# Inverse Kinematics
+
+Inverse kinematics is the reverse problem: given a desired end-effector pose (position + orientation), compute the joint parameters (angles/displacements) that achieve that pose.
+
+IK is generally more complex than FK: the equations are often non-linear, may have multiple solutions (or none), and solving them may require analytic solutions when possible or numerical methods/optimization when not.
+
+In robotics and humanoid systems especially, IK is crucial for tasks like placing a hand at a target position, foot placement for walking, whole-body posture, manipulation, and balancing.

@@ -1,0 +1,153 @@
+---
+title: SLAM and Localization
+---
+
+# SLAM and Localization
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand the fundamental concepts of robot localization and Simultaneous Localization and Mapping (SLAM).
+- Identify the sensors commonly used for localization and SLAM and their characteristics.
+- Grasp the basics of probabilistic robotics and state estimation techniques.
+- Differentiate between various localization and SLAM algorithms.
+- Recognize key components of a SLAM system and practical implementation aspects.
+
+---
+
+## I. Introduction to Mobile Robotics Navigation
+
+### A. What is Robot Localization?
+Content for: Definition and importance, The "Where am I?" problem
+
+### B. What is Simultaneous Localization and Mapping (SLAM)?
+Content for: Definition and importance, The "Chicken and Egg" problem
+
+### C. Why are Localization and SLAM challenging?
+Content for: Sensor noise and uncertainty, Dynamic environments, Computational complexity
+
+### D. Relationship between Localization and SLAM
+Content for: Localization as a component of SLAM
+
+## II. Sensors for SLAM and Localization
+
+### A. Odometry
+Content for: Wheel encoders: how they work, advantages, and limitations, Visual Odometry (VO) / Inertial Odometry (IO)
+
+### B. Inertial Measurement Units (IMU)
+Content for: Accelerometers, gyroscopes, magnetometers, Drift and calibration
+
+### C. Global Positioning System (GPS)
+Content for: Principles, accuracy, and limitations (indoor/urban canyons), RTK-GPS (Real-Time Kinematic) for improved accuracy
+
+### D. Laser Range Finders (LiDAR)
+Content for: 2D vs. 3D LiDAR, Point clouds, scan matching
+
+### E. Cameras
+Content for: Monocular, Stereo, and RGB-D cameras, Feature extraction (e.g., SIFT, SURF, ORB), Direct methods vs. Feature-based methods
+
+### F. Sensor Fusion
+Content for: Combining multiple sensor inputs for robust estimation
+
+## III. Probabilistic Robotics & State Estimation Fundamentals
+
+### A. Introduction to Probability & Statistics (brief refresh)
+Content for: Random variables, probability distributions (Gaussian), Bayes' Theorem
+
+### B. Bayesian Filtering Basics
+Content for: Markov Assumption, Prediction (motion model) and Update (measurement model) steps
+
+### C. Gaussian Filters for State Estimation
+Content for: Kalman Filter (KF) for linear systems, Extended Kalman Filter (EKF) for non-linear systems, Unscented Kalman Filter (UKF) for improved non-linear handling
+
+### D. Non-Gaussian Filters
+Content for: Particle Filter / Monte Carlo Localization (MCL), Advantages for multi-modal distributions
+
+## IV. Localization Algorithms
+
+### A. Known Map Localization
+Content for: Algorithms when a map is already available
+
+### B. Monte Carlo Localization (MCL)
+Content for: Principles, particle representation, Algorithm steps: motion update, measurement update, resampling, Addressing the "Kidnapped Robot Problem" (Global Localization)
+
+### C. Grid-based Localization
+Content for: Occupancy grid maps, Belief propagation
+
+### D. Feature-based Localization
+Content for: Using landmarks or distinct environmental features
+
+## V. SLAM Algorithms
+
+### A. The SLAM Problem
+Content for: Estimating robot pose and map simultaneously
+
+### B. Online SLAM vs. Full SLAM
+Content for: Differences and use cases
+
+### C. Early Approaches
+Content for: EKF-SLAM: principles, computational challenges (scalability), FastSLAM (Particle Filter SLAM): principles, factorizing the problem
+
+### D. Graph-Based SLAM
+Content for: Pose Graph SLAM: representing poses and constraints as a graph, Optimization techniques: Ceres Solver, G2O, Advantages: flexibility, scalability
+
+### E. Visual SLAM (V-SLAM)
+Content for: Feature-based V-SLAM (e.g., ORB-SLAM): keypoints, descriptors, matching, Direct V-SLAM (e.g., LSD-SLAM): pixel intensity alignment, Monocular, Stereo, and RGB-D V-SLAM variants
+
+### F. LiDAR SLAM
+Content for: Scan Matching (ICP, NDT), LOAM (LiDAR Odometry and Mapping) and its derivatives (e.g., LIO-SAM)
+
+## VI. Key Components of SLAM Systems
+
+### A. Frontend (Perception)
+Content for: Sensor data processing, Visual/LiDAR Odometry, Feature extraction and matching
+
+### B. Backend (Optimization)
+Content for: State estimation and graph optimization, Managing uncertainty
+
+### C. Loop Closure Detection
+Content for: Importance: correcting accumulated drift, Techniques: Bag-of-Words (BoW), NetVLAD, global descriptors, Place recognition
+
+### D. Map Representation
+Content for: Occupancy Grids (2D/3D), Point Clouds, Feature Maps, Mesh Maps
+
+## VII. Practical Aspects & Tools
+
+### A. ROS (Robot Operating System) for SLAM
+Content for: Overview of ROS Navigation Stack, `amcl` (Adaptive Monte Carlo Localization) package, `gmapping` (Grid-based FastSLAM) package, `cartographer` (Google's 2D/3D SLAM library), `hector_slam` (Fast 2D LiDAR SLAM)
+
+### B. Open-source Libraries and Frameworks
+Content for: OpenCV (computer vision), PCL (Point Cloud Library), GTSAM (Georgia Tech Smoothing and Mapping), Ceres Solver, G2O (graph optimization)
+
+### C. Datasets for SLAM/Localization evaluation
+Content for: KITTI, TUM, EuRoC, OpenLORIS
+
+### D. Implementation Considerations
+Content for: Real-time constraints, Computational cost and resource management, Calibration procedures
+
+## VIII. Advanced Topics & Future Directions
+
+### A. Multi-robot SLAM
+Content for: Challenges and approaches for multiple robots
+
+### B. Semantic SLAM
+Content for: Integrating object recognition and understanding into SLAM
+
+### C. Dynamic SLAM
+Content for: Handling moving objects in the environment
+
+### D. Event-based SLAM
+Content for: Using event cameras for SLAM
+
+### E. Deep Learning in SLAM
+Content for: Neural network-based feature extraction, End-to-end learning for odometry and mapping, Place recognition with deep learning
+
+## IX. Conclusion & Further Reading
+
+### A. Recap of key concepts and algorithms
+Content for: Summary
+
+### B. Best practices for implementing SLAM/Localization
+Content for: Tips and guidelines
+
+### C. Resources for continued learning
+Content for: Books, online courses, research papers, open-source projects

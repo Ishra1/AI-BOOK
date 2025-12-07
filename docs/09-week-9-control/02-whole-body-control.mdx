@@ -1,0 +1,79 @@
+---
+title: Whole-Body Control
+---
+
+# Whole-Body Control
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand the fundamental concepts and challenges of Whole-Body Control (WBC) in robotics.
+- Grasp the mathematical foundations, including kinematics, dynamics, and optimization-based control.
+- Recognize the role of sensors and state estimation in real-world WBC implementations.
+- Formulate tasks and constraints for various robotic applications using WBC.
+- Gain insights into practical implementation considerations and advanced topics in WBC.
+
+---
+
+## Module 1: Introduction to Robotics and Control Fundamentals
+
+### Review of Robot Kinematics and Dynamics
+Content for: Forward and Inverse Kinematics, Lagrangian and Newton-Euler Dynamics, Joint Space vs. Task Space
+
+### Classical Control Concepts
+Content for: PID Control, Feedforward and Feedback Control, State-Space Representation
+
+<h3>Challenges in Advanced Robot Control</h3>
+Content for: High-Dimensionality and Redundancy, Contact Dynamics and Stability, Underactuation and Constraints
+
+<h2>Module 2: Foundations of Whole-Body Control</h2>
+
+<h3>What is Whole-Body Control?</h3>
+Content for: Definition and Objectives, Motivation: Humanoid, Legged, and Mobile Manipulator Robots, Comparison with Traditional Joint-Space/Task-Space Control
+
+<h3>Key Concepts</h3>
+Content for: Tasks (e.g., end-effector pose, CoM control, joint limits), Constraints (e.g., contact forces, friction cones, actuator limits), Redundancy Resolution
+
+<h3>Mathematical Formulation</h3>
+Content for: Generalized Coordinates, Operational Space Formulation (Jacobian-based control), Introduction to Optimization-based Control
+
+<h2>Module 3: Optimization-Based Whole-Body Control</h2>
+
+<h3>Quadratic Programming (QP) for WBC</h3>
+Content for: Objective Functions (e.g., task tracking, joint posture, energy minimization), Equality Constraints (e.g., task tracking, non-slippage), Inequality Constraints (e.g., friction cones, joint limits, actuator torque limits), Solving QPs: Basics of QP solvers
+
+<h3>Hierarchical Whole-Body Control</h3>
+Content for: Prioritized Tasks and Null-Space Projection, Combining Multiple Tasks with Different Priorities, Advantages and Limitations
+
+<h3>Constraint-Based Whole-Body Control</h3>
+Content for: Managing Contact Forces, Zero Moment Point (ZMP) and Centroidal Momentum for Balance
+
+<h2>Module 4: Sensing, Estimation, and Implementation</h2>
+
+<h3>Sensors for WBC</h3>
+Content for: Proprioceptive Sensors (encoders, IMUs), Exteroceptive Sensors (force-torque sensors, cameras, LiDAR)
+
+<h3>State Estimation</h3>
+Content for: Kalman Filters (EKF, UKF), Complementary Filters, Estimating Contact Forces and External Disturbances
+
+<h3>Real-time Implementation Considerations</h3>
+Content for: Computational Efficiency of QP Solvers, Sampling Rates and Delays, Software Frameworks (e.g., ROS, custom C++ libraries)
+
+<h2>Module 5: Advanced Topics and Applications</h2>
+
+<h3>Task Formulation Examples</h3>
+Content for: Balance Control for Bipedal Robots, Multi-Contact Locomotion, Mobile Manipulation with Contact, Human-Robot Interaction Tasks
+
+<h3>Model Predictive Control (MPC) for WBC</h3>
+Content for: Predictive Horizons, Incorporating Future Trajectories and Disturbances
+
+<h3>Learning-based WBC (Brief Introduction)</h3>
+Content for: Reinforcement Learning for Task-Space Control, Adaptive Control
+
+<h3>Case Studies and Open Problems</h3>
+Content for: Examples from Research and Industry (e.g., Boston Dynamics, Google Robotics), Challenges: Robustness to Uncertainty, Long-Term Autonomy
+
+---
+
+**Practical Exercises/Labs (Optional but Recommended):**
+
+Content for: Simulating a simple N-DOF manipulator with a WBC controller. Implementing a basic QP-based controller for a floating-base system in a simulator. Exploring existing WBC frameworks (e.g., Pinocchio, Crocoddyl, whole-body-controller-msgs).

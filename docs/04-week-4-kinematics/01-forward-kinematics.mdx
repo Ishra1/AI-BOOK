@@ -1,0 +1,15 @@
+---
+title: Forward Kinematics
+---
+
+# Forward Kinematics
+
+Forward Kinematics (FK)
+
+Forward kinematics is the process of computing the pose (position + orientation) of a robot’s end-effector (e.g. a hand, foot, or tool) given the values of all the joint parameters (joint angles for revolute joints, displacements for prismatic joints, etc.).
+
+FK is deterministic: for a given set of joint parameters, the end-effector pose is uniquely determined (assuming no singularity or degenerate configuration).
+
+Mathematically, FK uses rigid-body transformations (e.g. via homogeneous transformation matrices, or via Denavit–Hartenberg (DH) parameters) to propagate from the base of the kinematic chain through each link/joint to the end-effector.
+
+In practice, FK is used in simulation, visualization, and motion planning: given joint encoder readings, FK tells where the “hand” or “foot” is in world space.

@@ -1,0 +1,181 @@
+---
+title: Introduction to ROS2
+---
+
+# Introduction to ROS2
+
+## Learning Outcomes
+By the end of this module, you will be able to:
+- Understand the core concepts and architecture of ROS2.
+- Differentiate between ROS1 and ROS2.
+- Set up a basic ROS2 workspace and create a simple package.
+- Write a basic ROS2 publisher and subscriber node in Python.
+- Utilize common ROS2 command-line tools for introspection (Quigley et al., 2009; Macenski et al., 2020).
+
+## What is ROS2?
+
+ROS (Robot Operating System) is a flexible framework for writing robot software. It's a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms. ROS2 is the latest iteration of this framework, re-engineered to address the limitations of ROS1, particularly concerning multi-robot systems, real-time control, and embedded systems (Macenski et al., 2020).
+
+Key features of ROS2 include:
+-   **DDS (Data Distribution Service) integration**: Provides robust, real-time, and scalable communication.
+-   **Multi-robot support**: Designed for seamless operation with multiple robots.
+-   **Quality of Service (QoS)** policies: Allows fine-grained control over communication reliability, latency, and throughput.
+-   **Security**: Built-in security features for authentication and encryption.
+-   **Language Agnostic**: Supports multiple programming languages, with C++ and Python being the most common.
+
+## ROS1 vs. ROS2: Key Differences
+
+While ROS1 laid the foundation for robot software development, ROS2 introduced significant architectural changes to overcome its predecessors' challenges.
+
+| Feature            | ROS1                                   | ROS2                                                            |
+| :----------------- | :------------------------------------- | :-------------------------------------------------------------- |
+| **Communication**  | Custom TCP/IP-based (ROS Master)       | DDS (Data Distribution Service)                                 |
+| **Multi-robot**    | Challenging, required workarounds      | Native support through DDS                                      |
+| **Real-time**      | Limited, best-effort communication     | Improved real-time capabilities with QoS policies               |
+| **Platform**       | Linux-centric                          | Cross-platform (Linux, Windows, macOS)                          |
+| **Security**       | Limited                                | Built-in security (authentication, encryption)                  |
+| **Build System**   | Catkin                                 | Colcon                                                          |
+
+## Setting up a ROS2 Workspace and Package
+
+A ROS2 workspace is a directory where you store your ROS2 packages. A package is the fundamental unit of organization in ROS2, containing source code, build scripts, configuration files, and other resources.
+
+To create a new workspace and package:
+
+```bash
+# Create a new workspace directory
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+
+# Create a new package (e.g., 'my_robot_package')
+ros2 pkg create --build-type ament_python my_robot_package --dependencies rclpy
+
+# Navigate back to the workspace root and build
+cd ~/ros2_ws
+colcon build
+
+# Source the setup files to make the package discoverable
+source install/setup.bash
+```
+
+## Basic ROS2 Publisher and Subscriber (Python)
+
+Let's create a simple publisher and subscriber node. A publisher sends messages on a topic, and a subscriber receives messages from a topic.
+
+### Publisher Node (`my_publisher_node.py`)
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class MinimalPublisher(Node):
+    def __init__(self):
+        super().__init__('minimal_publisher')
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.i = 0
+
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Hello ROS2: %d' % self.i
+        self.publisher_.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1
+
+def main(args=None):
+    rclpy.init(args=args)
+    minimal_publisher = MinimalPublisher()
+    rclpy.spin(minimal_publisher)
+    minimal_publisher.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+### Subscriber Node (`my_subscriber_node.py`)
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class MinimalSubscriber(Node):
+    def __init__(self):
+        super().__init__('minimal_subscriber')
+        self.subscription = self.create_subscription(
+            String,
+            'topic',
+            self.listener_callback,
+            10)
+        self.subscription  # prevent unused variable warning
+
+    def listener_callback(self, msg):
+        self.get_logger().info('I heard: "%s"' % msg.data)
+
+def main(args=None):
+    rclpy.init(args=args)
+    minimal_subscriber = MinimalSubscriber()
+    rclpy.spin(minimal_subscriber)
+    minimal_subscriber.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+To run these:
+1.  Save the files in your `my_robot_package/my_robot_package/` directory.
+2.  Add entry points in `setup.py` within `my_robot_package`:
+
+    ```python
+    from setuptools import setup
+
+    package_name = 'my_robot_package'
+
+    setup(
+        name=package_name,
+        version='0.0.0',
+        packages=[package_name],
+        data_files=[
+            ('share/' + package_name, ['package.xml']),
+            ('share/' + package_name + '/resource', ['resource/' + package_name]),
+        ],
+        install_requires=['setuptools'],
+        zip_safe=True,
+        maintainer='your_name',
+        maintainer_email='you@example.com',
+        description='TODO: Package description',
+        license='TODO: License declaration',
+        tests_require=['pytest'],
+        entry_points={
+            'console_scripts': [
+                'talker = my_robot_package.my_publisher_node:main',
+                'listener = my_robot_package.my_subscriber_node:main',
+            ],
+        },
+    )
+    ```
+
+3.  Build the workspace: `cd ~/ros2_ws && colcon build`
+4.  Source the setup files: `source install/setup.bash`
+5.  Run the nodes in separate terminals:
+    -   `ros2 run my_robot_package talker`
+    -   `ros2 run my_robot_package listener`
+
+## Common ROS2 Command-Line Tools
+
+-   `ros2 run <package_name> <executable>`: Run an executable from a package.
+-   `ros2 topic list`: List active topics.
+-   `ros2 topic echo <topic_name>`: Display messages being published on a topic.
+-   `ros2 node list`: List active nodes.
+-   `ros2 interface show <message_type>`: Show the definition of a message type.
+-   `ros2 param list`: List parameters declared by nodes.
+
+## References
+
+Macenski, S., et al. (2020). ROS 2: The Next Generation Robot Operating System. *IEEE Robotics & Automation Magazine*, 27(1), 18-27.
+
+Quigley, M., et al. (2009, May). ROS: an open-source Robot Operating System. In *ICRA workshop on open source robotics* (Vol. 3, No. 2, p. 5).
