@@ -12,7 +12,7 @@ const config: Config = {
   },
 
   url: 'https://physical-ai-textbook.github.io',
-  baseUrl: '/my-book/',
+  baseUrl: '/',
 
   organizationName: 'physical-ai-textbook',
   projectName: 'my-book',
